@@ -10,6 +10,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration._
 import scala.util.{Failure, Success}
 
+
 class Child extends Actor {
 
   val log = Logging(context.system, this)
@@ -100,7 +101,7 @@ object SupervisionMonitoring extends App {
   child onComplete {
     case Success(childRef) => {
 
-      println("Child**"+childRef)
+      println("Child***"+childRef)
       childRef ! "Stop"
     }
     case Failure(t) => println("An error has occurred: " + t.getMessage)
